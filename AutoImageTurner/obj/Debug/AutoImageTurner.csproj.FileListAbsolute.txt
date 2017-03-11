@@ -1,0 +1,20 @@
+c:\users\tim\documents\visual studio 2015\Projects\AutoImageTurner\AutoImageTurner\bin\Debug\AutoImageTurner.exe.config
+c:\users\tim\documents\visual studio 2015\Projects\AutoImageTurner\AutoImageTurner\bin\Debug\AutoImageTurner.exe
+c:\users\tim\documents\visual studio 2015\Projects\AutoImageTurner\AutoImageTurner\bin\Debug\AutoImageTurner.pdb
+c:\users\tim\documents\visual studio 2015\Projects\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.csprojResolveAssemblyReference.cache
+c:\users\tim\documents\visual studio 2015\Projects\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.AutoImageTurner.resources
+c:\users\tim\documents\visual studio 2015\Projects\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.Properties.Resources.resources
+c:\users\tim\documents\visual studio 2015\Projects\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.csproj.GenerateResource.Cache
+c:\users\tim\documents\visual studio 2015\Projects\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.exe
+c:\users\tim\documents\visual studio 2015\Projects\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.pdb
+E:\TODO\C# und VB\AutoImageTurner\AutoImageTurner\bin\Debug\AutoImageTurner.exe.config
+E:\TODO\C# und VB\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.exe
+E:\TODO\C# und VB\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.pdb
+C:\Users\tim\Desktop\AutoImageTurner\AutoImageTurner\bin\Debug\AutoImageTurner.exe.config
+C:\Users\tim\Desktop\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.exe
+C:\Users\tim\Desktop\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.pdb
+C:\Users\tim\Desktop\AutoImageTurner\AutoImageTurner\bin\Debug\AutoImageTurner.exe
+C:\Users\tim\Desktop\AutoImageTurner\AutoImageTurner\bin\Debug\AutoImageTurner.pdb
+C:\Users\tim\Desktop\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.AutoImageTurner.resources
+C:\Users\tim\Desktop\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.Properties.Resources.resources
+C:\Users\tim\Desktop\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.csproj.GenerateResource.Cache
