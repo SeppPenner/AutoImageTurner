@@ -61,6 +61,9 @@ namespace AutoImageTurner
 }
 ```
 
+## Screenshot from the executable:
+![Screenshot from the executable](https://github.com/SeppPenner/AutoImageTurner/blob/master/AutoImageTurner-Screenshot.PNG "Screenshot from the executable")
+
 Change history
 --------------
 
