@@ -46,7 +46,7 @@ Source: "C:\Users\tim\Desktop\AutoImageTurner\AutoImageTurner\bin\Debug\Language
 Source: "C:\Users\tim\Desktop\AutoImageTurner\AutoImageTurner\bin\Debug\License.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\tim\Desktop\AutoImageTurner\AutoImageTurner\bin\Debug\jhead.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\tim\Desktop\AutoImageTurner\AutoImageTurner\bin\Debug\jpegtran.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\tim\Desktop\AutoImageTurner\AutoImageTurner\bin\Debug\languages\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\Users\tim\Desktop\AutoImageTurner\AutoImageTurner\bin\Debug\languages\*"; DestDir: "{app}\languages\"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
