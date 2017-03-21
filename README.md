@@ -1,5 +1,5 @@
-# AutoImageTurner und AutoImageTurnInCSharp
-===============
+AutoImageTurner und AutoImageTurnInCSharp
+===========================================
 Rotating images based on the 'orientation' EXIF tag with JHEAD software
 
 AutoImageTurnInCSharp: Kind of a 'library' for CSharp  on how to rotate images based on the 'orientation' EXIF tag.
