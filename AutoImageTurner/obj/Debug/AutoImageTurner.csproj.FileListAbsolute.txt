@@ -18,3 +18,4 @@ C:\Users\tim\Desktop\AutoImageTurner\AutoImageTurner\bin\Debug\AutoImageTurner.p
 C:\Users\tim\Desktop\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.AutoImageTurner.resources
 C:\Users\tim\Desktop\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.Properties.Resources.resources
 C:\Users\tim\Desktop\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.csproj.GenerateResource.Cache
+C:\Users\tim\Desktop\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.csprojResolveAssemblyReference.cache
