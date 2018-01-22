@@ -15,7 +15,7 @@ Example images using each of the EXIF orientation flags (1-to-8), in both landsc
 [See here](http://www.daveperrett.com/articles/2012/07/28/exif-orientation-handling-is-a-ghetto/) for more information.
 
 
-The assembly/ exe was written and tested in .Net 4.6.2.
+The assembly/ exe was written and tested in .Net 4.7.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/bpp3st995erveceh?svg=true)](https://ci.appveyor.com/project/SeppPenner/autoimageturner)
 
