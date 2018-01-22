@@ -20,3 +20,14 @@ C:\Users\tim\Desktop\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.P
 C:\Users\tim\Desktop\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.csproj.GenerateResource.Cache
 C:\Users\tim\Desktop\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.csprojResolveAssemblyReference.cache
 C:\Users\tim\Desktop\AutoImageTurner\AutoImageTurner\bin\Debug\Languages.pdb
+F:\TODO\C# und VB\AutoImageTurner\AutoImageTurner\bin\Debug\AutoImageTurner.exe.config
+F:\TODO\C# und VB\AutoImageTurner\AutoImageTurner\bin\Debug\AutoImageTurner.exe
+F:\TODO\C# und VB\AutoImageTurner\AutoImageTurner\bin\Debug\AutoImageTurner.pdb
+F:\TODO\C# und VB\AutoImageTurner\AutoImageTurner\bin\Debug\Languages.pdb
+F:\TODO\C# und VB\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.csprojResolveAssemblyReference.cache
+F:\TODO\C# und VB\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.AutoImageTurner.resources
+F:\TODO\C# und VB\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.Properties.Resources.resources
+F:\TODO\C# und VB\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.csproj.GenerateResource.Cache
+F:\TODO\C# und VB\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.csproj.CoreCompileInputs.cache
+F:\TODO\C# und VB\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.exe
+F:\TODO\C# und VB\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.pdb
