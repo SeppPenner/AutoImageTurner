@@ -31,3 +31,5 @@ F:\TODO\C# und VB\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.cspr
 F:\TODO\C# und VB\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.csproj.CoreCompileInputs.cache
 F:\TODO\C# und VB\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.exe
 F:\TODO\C# und VB\AutoImageTurner\AutoImageTurner\obj\Debug\AutoImageTurner.pdb
+F:\TODO\C# und VB\AutoImageTurner\AutoImageTurner\bin\Debug\HelpLibraryManagerLauncher.exe
+F:\TODO\C# und VB\AutoImageTurner\AutoImageTurner\bin\Debug\Languages.dll
