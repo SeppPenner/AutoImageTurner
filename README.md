@@ -15,9 +15,14 @@ Example images using each of the EXIF orientation flags (1-to-8), in both landsc
 [See here](http://www.daveperrett.com/articles/2012/07/28/exif-orientation-handling-is-a-ghetto/) for more information.
 
 
-The assembly/ exe was written and tested in .Net 4.7.
+The assembly/ exe was written and tested in .Net 4.8.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/bpp3st995erveceh?svg=true)](https://ci.appveyor.com/project/SeppPenner/autoimageturner)
+[![GitHub issues](https://img.shields.io/github/issues/SeppPenner/AutoImageTurner.svg)](https://github.com/SeppPenner/AutoImageTurner/issues)
+[![GitHub forks](https://img.shields.io/github/forks/SeppPenner/AutoImageTurner.svg)](https://github.com/SeppPenner/AutoImageTurner/network)
+[![GitHub stars](https://img.shields.io/github/stars/SeppPenner/AutoImageTurner.svg)](https://github.com/SeppPenner/AutoImageTurner/stargazers)
+[![GitHub license](https://img.shields.io/badge/license-AGPL-blue.svg)](https://raw.githubusercontent.com/SeppPenner/AutoImageTurner/master/License.txt)
+[![Known Vulnerabilities](https://snyk.io/test/github/SeppPenner/AutoImageTurner/badge.svg)](https://snyk.io/test/github/SeppPenner/AutoImageTurner)
 
 
 ## Basic usage:
@@ -67,6 +72,7 @@ namespace AutoImageTurner
 Change history
 --------------
 
+* **Version 1.0.0.5 (2019-05-06)** : Updated .Net version to 4.8.
 * **Version 1.0.0.4 (2017-03-24)** : Updated Languages.dll to version 1.0.0.4.
 * **Version 1.0.0.3 (2017-03-21)** : Updated Languages.dll.
 * **Version 1.0.0.2 (2017-03-11)** : Switched to .Net 4.6.2, added license and refactored code.
