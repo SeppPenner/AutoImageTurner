@@ -2,11 +2,11 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "AutoImageTurner"
-#define MyAppVersion "1.0.0.5"
+#define MyAppVersion "1.0.1.0"
 #define MyAppPublisher "Hämmer Electronics"
 #define MyAppURL "www.softwareload24.de.tl"
 #define MyAppExeName "AutoImageTurner.exe"
-#define MyPath "C:\Users\tim\Desktop\Updaten_Snyk\AutoImageTurner"
+#define MyPath "C:\Users\Tim\Documents\Git\C# und VB\AutoImageTurner"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -23,10 +23,10 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName={pf}\{#MyAppName}
+DefaultDirName={commonpf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
-LicenseFile={#MyPath}\AutoImageTurner\bin\Debug\License.txt
+LicenseFile={#MyPath}\AutoImageTurner\bin\Release\License.txt
 OutputDir={#MyPath}\Setup
 OutputBaseFilename=AutoImageTurner-Setup
 SetupIconFile={#MyPath}\AutoImageTurner\RotateImage.ico
@@ -42,12 +42,12 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Files]
-Source: "{#MyPath}\AutoImageTurner\bin\Debug\AutoImageTurner.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\AutoImageTurner\bin\Debug\Languages.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\AutoImageTurner\bin\Debug\License.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\AutoImageTurner\bin\Debug\jhead.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\AutoImageTurner\bin\Debug\jpegtran.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\AutoImageTurner\bin\Debug\languages\*"; DestDir: "{app}\languages\"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "{#MyPath}\AutoImageTurner\bin\Release\AutoImageTurner.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\AutoImageTurner\bin\Release\Languages.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\AutoImageTurner\bin\Release\License.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\AutoImageTurner\bin\Release\jhead.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\AutoImageTurner\bin\Release\jpegtran.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyPath}\AutoImageTurner\bin\Release\languages\*"; DestDir: "{app}\languages\"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
