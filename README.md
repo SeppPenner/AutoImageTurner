@@ -15,7 +15,7 @@ Example images using each of the EXIF orientation flags (1-to-8), in both landsc
 [See here](http://www.daveperrett.com/articles/2012/07/28/exif-orientation-handling-is-a-ghetto/) for more information.
 
 
-The assembly/ exe was written and tested in .Net 4.8.
+The assembly/ exe was written and tested in .Net 5.0.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/bpp3st995erveceh?svg=true)](https://ci.appveyor.com/project/SeppPenner/autoimageturner)
 [![GitHub issues](https://img.shields.io/github/issues/SeppPenner/AutoImageTurner.svg)](https://github.com/SeppPenner/AutoImageTurner/issues)
@@ -69,18 +69,6 @@ namespace AutoImageTurner
 ## Screenshot from the executable:
 ![Screenshot from the executable](https://github.com/SeppPenner/AutoImageTurner/blob/master/AutoImageTurner-Screenshot.PNG "Screenshot from the executable")
 
-Change history
---------------
-
-* **Version 1.0.1.0 (2019-10-13)** : Updated nuget packages, added GitVersionTask.
-* **Version 1.0.0.5 (2019-05-06)** : Updated .Net version to 4.8.
-* **Version 1.0.0.4 (2017-03-24)** : Updated Languages.dll to version 1.0.0.4.
-* **Version 1.0.0.3 (2017-03-21)** : Updated Languages.dll.
-* **Version 1.0.0.2 (2017-03-11)** : Switched to .Net 4.6.2, added license and refactored code.
-* **Version 1.0.0.1 (2016-12-03)** : Added basic usage to Readme.
-* **Version 1.0.0.1 (2016-08-27)** : Added "all image files" selection to the exe and the possibility to not neccessarily get error messages in the library
-* **Version 1.0.0.0 (2016-08-12)** : 1.0 release.
-
 Copyright (of the images)
 -------------------------
 
@@ -89,3 +77,8 @@ Dave Perrett :: hello@daveperrett.com :: [@daveperrett](http://twitter.com/davep
 These images are licensed under the [MIT License](http://opensource.org/licenses/MIT).
 
 Copyright (c) 2010 Dave Perrett. See [License](https://github.com/recurser/exif-orientation-examples/blob/master/LICENSE) for details.
+
+Change history
+--------------
+
+See the [Changelog](https://github.com/SeppPenner/AutoImageTurner/blob/master/Changelog.md).
