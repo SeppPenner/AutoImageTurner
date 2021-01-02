@@ -42,6 +42,7 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 
 [Files]
 Source: "..\src\AutoImageTurner\bin\Release\net5.0-windows\AutoImageTurner.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\src\AutoImageTurner\bin\Release\net5.0-windows\AutoImageTurner.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\src\AutoImageTurner\bin\Release\net5.0-windows\Languages.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\src\AutoImageTurner\bin\Release\net5.0-windows\License.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\src\AutoImageTurner\bin\Release\net5.0-windows\jhead.exe"; DestDir: "{app}"; Flags: ignoreversion
