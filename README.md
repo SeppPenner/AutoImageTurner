@@ -25,7 +25,7 @@ The assembly/ exe was written and tested in .Net 5.0.
 [![Known Vulnerabilities](https://snyk.io/test/github/SeppPenner/AutoImageTurner/badge.svg)](https://snyk.io/test/github/SeppPenner/AutoImageTurner)
 
 
-## Basic usage:
+## Basic usage
 ```csharp
 using System;
 using System.Windows.Forms;
@@ -66,7 +66,7 @@ namespace AutoImageTurner
 }
 ```
 
-## Screenshot from the executable:
+## Screenshot from the executable
 ![Screenshot from the executable](https://github.com/SeppPenner/AutoImageTurner/blob/master/AutoImageTurner-Screenshot.PNG "Screenshot from the executable")
 
 Copyright (of the images)
