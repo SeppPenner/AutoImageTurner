@@ -1,6 +1,6 @@
 AutoImageTurner und AutoImageTurnInCSharp
 ===========================================
-Rotating images based on the 'orientation' EXIF tag with JHEAD software
+Rotating images based on the 'orientation' EXIF tag with JHEAD software.
 
 AutoImageTurnInCSharp: Kind of a 'library' for CSharp  on how to rotate images based on the 'orientation' EXIF tag.
 
@@ -14,8 +14,6 @@ Example images using each of the EXIF orientation flags (1-to-8), in both landsc
 
 [See here](http://www.daveperrett.com/articles/2012/07/28/exif-orientation-handling-is-a-ghetto/) for more information.
 
-
-The assembly/ exe was written and tested in .Net 5.0.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/bpp3st995erveceh?svg=true)](https://ci.appveyor.com/project/SeppPenner/autoimageturner)
 [![GitHub issues](https://img.shields.io/github/issues/SeppPenner/AutoImageTurner.svg)](https://github.com/SeppPenner/AutoImageTurner/issues)
