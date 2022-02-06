@@ -28,7 +28,7 @@ namespace AutoImageTurner
         /// <summary>
         /// The rotator.
         /// </summary>
-        private IAutoTurnImages rotator;
+        private IAutoTurnImages? rotator;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AutoImageTurner"/> class.
@@ -120,18 +120,30 @@ namespace AutoImageTurner
                 return;
             }
 
-            // ReSharper disable once PossibleNullReferenceException
-            if (this.comboBoxChooseEnding.SelectedItem.ToString().Equals("All images"))
+            var selectedItem = this.comboBoxChooseEnding.SelectedItem?.ToString();
+
+            if (string.IsNullOrWhiteSpace(selectedItem))
+            {
+                return;
+            }
+
+            if (selectedItem.Equals("All images"))
             {
                 foreach (var s in this.comboBoxChooseEnding.Items)
                 {
-                    // ReSharper disable once PossibleNullReferenceException
-                    if (s.ToString().Equals("All images"))
+                    var item = s?.ToString();
+
+                    if (string.IsNullOrWhiteSpace(item))
                     {
                         continue;
                     }
 
-                    this.RotateAllKindsofImages(s.ToString());
+                    if (item.Equals("All images"))
+                    {
+                        continue;
+                    }
+
+                    this.RotateAllKindsofImages(item);
                 }
             }
             else
@@ -164,6 +176,11 @@ namespace AutoImageTurner
         {
             try
             {
+                if (this.rotator is null)
+                {
+                    return;
+                }
+
                 this.rotator.RotateImagesInFolder(this.richTextBoxChooseFolder.Text, itemName);
             }
             catch (Exception ex)
@@ -180,6 +197,11 @@ namespace AutoImageTurner
         {
             try
             {
+                if (this.rotator is null)
+                {
+                    return;
+                }
+
                 this.rotator.RotateImagesInFolderNoMessage(this.richTextBoxChooseFolder.Text, itemName);
             }
             catch (Exception ex)
@@ -195,7 +217,19 @@ namespace AutoImageTurner
         {
             try
             {
-                this.rotator.RotateImagesInFolder(this.richTextBoxChooseFolder.Text, this.comboBoxChooseEnding.SelectedItem.ToString());
+                if (this.rotator is null)
+                {
+                    return;
+                }
+
+                var selectedItem = this.comboBoxChooseEnding.SelectedItem?.ToString();
+
+                if (string.IsNullOrWhiteSpace(selectedItem))
+                {
+                    return;
+                }
+
+                this.rotator.RotateImagesInFolder(this.richTextBoxChooseFolder.Text, selectedItem);
             }
             catch (Exception ex)
             {
