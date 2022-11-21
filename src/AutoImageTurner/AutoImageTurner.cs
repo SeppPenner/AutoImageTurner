@@ -41,7 +41,7 @@ public partial class AutoImageTurner : Form
     private void InitializeLanguageManager()
     {
         this.languageManager.SetCurrentLanguage("de-DE");
-        this.languageManager.OnLanguageChanged += this.OnLanguageChanged;
+        this.languageManager.OnLanguageChanged += this.OnLanguageChanged!;
         this.rotator = new AutoTurnImages(this.languageManager);
     }
 
