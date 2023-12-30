@@ -65,7 +65,14 @@ public partial class AutoImageTurner : Form
     /// <param name="e">The event args.</param>
     private void ComboBoxLanguageSelectedIndexChanged(object sender, EventArgs e)
     {
-        this.languageManager.SetCurrentLanguageFromName(this.comboBoxLanguage.SelectedItem.ToString());
+        var selectedItem = this.comboBoxLanguage.SelectedItem?.ToString();
+
+        if (string.IsNullOrWhiteSpace(selectedItem))
+        {
+            return;
+        }
+
+        this.languageManager.SetCurrentLanguageFromName(selectedItem);
     }
 
     /// <summary>
