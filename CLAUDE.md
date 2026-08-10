@@ -91,8 +91,10 @@ dotnet test src/AutoImageTurner.sln
   for public packages, restore fails with `NU1301`. Then build with an explicit source:
   `dotnet build src/AutoImageTurner.sln --source https://api.nuget.org/v3/index.json`.
 - `Setup/build-setup-files.bat` deletes all `bin` and `obj` folders below `src`, then runs
-  `dotnet publish -c Release -o bin/publish` and removes the `*.pdb` files from the publish output.
-  The batch file does **not** run the Inno Setup compiler, that is a separate manual step.
+  `dotnet publish -c Release -r win-x64 --self-contained true -o bin/publish` and removes the
+  `*.pdb` files from the publish output. The installer ships the whole runtime, so the target machine
+  needs no .NET installation, at the price of roughly 120 MB of publish output. The batch file does
+  **not** run the Inno Setup compiler, that is a separate manual step.
 - Tests are MSTest, in the single test project `src/AutoImageTurner.Tests`, which follows the same
   package set as the sibling repositories: `Microsoft.NET.Test.Sdk`, `MSTest.TestAdapter`,
   `MSTest.TestFramework`, `coverlet.collector` and `GitVersion.MsBuild`. `dotnet test` runs 6 tests,
