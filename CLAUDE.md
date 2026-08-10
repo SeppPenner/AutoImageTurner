@@ -139,10 +139,9 @@ Do not silently "clean up" these, they are existing behaviour:
   rule is what keeps `jhead.exe` and `jpegtran.exe` out of the repository.
 - **The `.csproj` lists the two language files twice** in its `None Update` item group. MSBuild
   does not care, the duplication is harmless.
-- **The `README.md` code sample does not compile.** It constructs `new AutoTurnImages()` without
-  the `ILanguageManager` the constructor requires, it mentions a project `AutoImageTurnInCSharp`
-  that does not exist in this repository, and it declares `Test()` twice in one class. It is a
-  sketch of the usage, not code that was ever built.
+- **The `README.md` headline mentions a project `AutoImageTurnInCSharp`** that does not exist in
+  this repository. What it means is the `AutoTurnImages` class inside the application, there is no
+  second project and no library package.
 - **AppVeyor badge without CI in the repository.** `README.md` links an AppVeyor build that is
   configured outside of this repository. There is no `.github` folder and no pipeline file here.
 - **`src/AutoImageTurner.sln.DotSettings`** is tracked and holds nothing but a ReSharper user

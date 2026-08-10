@@ -35,5 +35,9 @@
 			<Key>Start</Key>
 			<Value>Start</Value>
 		</Word>
+		<Word>
+			<Key>ErrorTitle</Key>
+			<Value>Fehler</Value>
+		</Word>
 	</Words>
 </Language>

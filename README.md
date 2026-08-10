@@ -27,41 +27,54 @@ Example images using each of the EXIF orientation flags (1-to-8), in both landsc
 
 
 ## Basic usage
+`jhead.exe` and `jpegtran.exe` need to sit beside the executable, the rotation is done by them.
+
 ```csharp
 using System;
 using System.Windows.Forms;
+
+using Languages.Implementation;
+using Languages.Interfaces;
 
 namespace AutoImageTurner
 {
     public class AutoTurnExample
     {
-        public void Test()
+        private readonly ILanguageManager languageManager = new LanguageManager();
+
+        public void TurnAndShowTheResult()
         {
             try
             {
-                IAutoTurnImages rotator = new AutoTurnImages();
+                IAutoTurnImages rotator = new AutoTurnImages(this.languageManager);
                 rotator.RotateImagesInFolder("C:\\abc", "jpg");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, ex.StackTrace, MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                this.ShowError(ex);
             }
         }
-		
-		public void Test()
+
+        public void TurnSilently()
         {
             try
             {
-                IAutoTurnImages rotator = new AutoTurnImages();
+                IAutoTurnImages rotator = new AutoTurnImages(this.languageManager);
+
+                //Doesn't show the finished message from the method itself
                 rotator.RotateImagesInFolderNoMessage("C:\\abc", "jpg");
-                //Doesn't show an error message from the method itself
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, ex.StackTrace, MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                this.ShowError(ex);
             }
+        }
+
+        private void ShowError(Exception ex)
+        {
+            var caption = this.languageManager.GetCurrentLanguage().GetWord("ErrorTitle");
+            var text = $"{ex.Message}{Environment.NewLine}{Environment.NewLine}{ex.StackTrace}";
+            MessageBox.Show(text, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

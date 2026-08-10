@@ -186,7 +186,7 @@ public partial class AutoImageTurner : Form
         }
         catch (Exception ex)
         {
-            MessageBox.Show(ex.Message, ex.StackTrace, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            this.ShowError(ex);
         }
     }
 
@@ -207,7 +207,7 @@ public partial class AutoImageTurner : Form
         }
         catch (Exception ex)
         {
-            MessageBox.Show(ex.Message, ex.StackTrace, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            this.ShowError(ex);
         }
     }
 
@@ -234,7 +234,7 @@ public partial class AutoImageTurner : Form
         }
         catch (Exception ex)
         {
-            MessageBox.Show(ex.Message, ex.StackTrace, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            this.ShowError(ex);
         }
     }
 
@@ -265,5 +265,16 @@ public partial class AutoImageTurner : Form
             MessageBoxButtons.OK,
             MessageBoxIcon.Exclamation);
         return false;
+    }
+
+    /// <summary>
+    /// Shows an error message box for the given exception.
+    /// </summary>
+    /// <param name="ex">The exception.</param>
+    private void ShowError(Exception ex)
+    {
+        var caption = this.languageManager.GetCurrentLanguage().GetWord("ErrorTitle");
+        var text = $"{ex.Message}{Environment.NewLine}{Environment.NewLine}{ex.StackTrace}";
+        MessageBox.Show(text, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
     }
 }
