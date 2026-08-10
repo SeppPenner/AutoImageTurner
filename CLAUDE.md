@@ -54,7 +54,7 @@ Its runtime contract is convention based and this project depends on it:
 dotnet build src/AutoImageTurner.sln
 ```
 
-- Single target framework `net9.0-windows`, `WinExe`, `UseWindowsForms`, `RuntimeIdentifiers`
+- Single target framework `net10.0-windows`, `WinExe`, `UseWindowsForms`, `RuntimeIdentifiers`
   `win-x64`. This is a Windows only application, unlike the language library it references.
 - All build properties live directly in `src/AutoImageTurner/AutoImageTurner.csproj`. There is no
   `Directory.Build.props` in this repository.
