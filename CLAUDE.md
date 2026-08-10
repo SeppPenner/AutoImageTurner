@@ -164,6 +164,15 @@ Do not silently "clean up" these, they are existing behaviour:
   starts jhead has to put that directory on the child `PATH`. Without it jhead exits with code 1,
   writes `Error : Problem executing specified command` plus the shell message about the unknown
   command `jpegtran`, and leaves the file untouched.
+- **jhead is JPEG only, and its exit code decides what the user sees.** The rotation is a JPEG
+  feature, the entries `bmp`, `gif`, `giff`, `png`, `tif` and `tiff` of the combo box can never be
+  rotated. jhead answers a pattern without any match with `Error: No files matched` and exit code 1,
+  which is why `AutoTurnImages` skips a folder without a matching file beforehand. It answers a file
+  that is no JPEG with `Not JPEG: <name>` on standard error, and it exits with code 1 only when it
+  could process **no** file at all. A folder holding one real JPEG plus one broken one therefore
+  ends with exit code 0 and the good file rotated. Selecting a non-JPEG format in a folder that
+  really holds such files ends in the error dialog, that is intended, before version 1.0.10.0 the
+  application silently claimed success.
 - **`.gitignore` excludes `*.exe` and `[Bb]in`**, yet `Setup/AutoImageTurner-Setup.exe` is tracked.
   It was added with `git add -f` and has to be updated the same way for every release. The two
   rotation tools are tracked through negation rules instead, the installer is not, because it
