@@ -34,3 +34,6 @@ private-packages/
 InstallFiles.wxs
 node_modules/
 package-lock.json
+#The tools that do the rotation are part of the application, the *.exe rule above must not hide them
+!src/AutoImageTurner/jhead.exe
+!src/AutoImageTurner/jpegtran.exe

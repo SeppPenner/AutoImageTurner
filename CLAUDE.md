@@ -9,9 +9,10 @@ tag. The rotation itself is not implemented here, it is done by the bundled comm
 that jhead calls). The UI is bilingual (German, English) and switchable at runtime through a combo
 box. Distribution happens as an Inno Setup installer, not as a NuGet package.
 
-One solution `src/AutoImageTurner.sln` with exactly one project,
-`src/AutoImageTurner/AutoImageTurner.csproj`. There is no test project and no second project of any
-kind. Project, assembly, namespace and the form class are all called `AutoImageTurner`, so
+One solution `src/AutoImageTurner.sln` with exactly two projects,
+`src/AutoImageTurner/AutoImageTurner.csproj` (the application) and
+`src/AutoImageTurner.Tests/AutoImageTurner.Tests.csproj` (MSTest, added in version 1.0.10.0).
+Project, assembly, namespace and the form class are all called `AutoImageTurner`, so
 `AutoImageTurner.AutoImageTurner` is the form. That is intentional, do not rename one of them.
 
 Layout inside `src/AutoImageTurner`:
@@ -29,9 +30,25 @@ Layout inside `src/AutoImageTurner`:
 - `languages/de-DE.xml` and `languages/en-US.xml`: the UI texts.
 - `RotateImage.ico`: application and installer icon. `License.txt`: shipped next to the executable.
 - `jhead.exe` and `jpegtran.exe`: the rotation tools, copied to the output directory with
-  `CopyToOutputDirectory=Always` and shipped by the installer. Both are ignored by `.gitignore`
-  (`*.exe`) and therefore **not** tracked, a fresh clone builds an application that cannot rotate
-  anything.
+  `CopyToOutputDirectory=Always` and shipped by the installer. `.gitignore` excludes `*.exe`, so
+  both are tracked through the two negation rules at the end of that file. Without them in the
+  repository a fresh clone builds an application that cannot rotate anything, and the tests fail.
+
+Layout inside `src/AutoImageTurner.Tests`:
+
+- `AutoTurnImagesTests.cs`: the rotation of an image carrying an orientation tag, an image without
+  such a tag, a folder without a matching file, a file whose extension only starts with the given
+  format, a second run on an already rotated image and a folder that does not exist. The variant
+  `RotateImagesInFolder` is not covered, it ends in a `MessageBox` that would block the test run.
+- `TestData/Rotate90.jpg` and `TestData/NoOrientation.jpg`: two generated 120 x 80 images, the first
+  one with an EXIF orientation tag of 6, the second one without any orientation tag. Both are
+  copied to the output directory with `CopyToOutputDirectory=Always` and are marked binary in
+  `.gitattributes`.
+- `GlobalUsings.cs`: all usings of the test project.
+
+The test project has `UseWindowsForms` enabled because the class under test shows message boxes, and
+it needs no copy rule for `jhead.exe`, `jpegtran.exe` and the language files. Those arrive in its
+output directory through the project reference.
 
 Translation comes from the NuGet package
 [HaemmerElectronics.SeppPenner.Language](https://www.nuget.org/packages/HaemmerElectronics.SeppPenner.Language/)
@@ -54,10 +71,15 @@ Its runtime contract is convention based and this project depends on it:
 dotnet build src/AutoImageTurner.sln
 ```
 
+```powershell
+dotnet test src/AutoImageTurner.sln
+```
+
 - Single target framework `net10.0-windows`, `WinExe`, `UseWindowsForms`, `RuntimeIdentifiers`
-  `win-x64`. This is a Windows only application, unlike the language library it references.
-- All build properties live directly in `src/AutoImageTurner/AutoImageTurner.csproj`. There is no
-  `Directory.Build.props` in this repository.
+  `win-x64`. This is a Windows only application, unlike the language library it references. The test
+  project targets `net10.0-windows` as well.
+- All build properties live directly in the two `.csproj` files and are duplicated there. There is
+  no `Directory.Build.props` in this repository.
 - `TreatWarningsAsErrors` is enabled, so every warning breaks the build, NuGet warnings (`NU****`)
   from restore included. A clean build reports zero warnings, keep it that way.
 - `NU1803` (HTTP source usage during restore) is the one warning suppressed via `NoWarn`. Fix
@@ -71,9 +93,15 @@ dotnet build src/AutoImageTurner.sln
 - `Setup/build-setup-files.bat` deletes all `bin` and `obj` folders below `src`, then runs
   `dotnet publish -c Release -o bin/publish` and removes the `*.pdb` files from the publish output.
   The batch file does **not** run the Inno Setup compiler, that is a separate manual step.
-- **There are no tests in this repository.** Never claim a test run happened. Verification means a
-  clean build, and where behaviour changed, starting the built executable and letting it rotate a
-  real image whose EXIF orientation tag is not 1.
+- Tests are MSTest, in the single test project `src/AutoImageTurner.Tests`, which follows the same
+  package set as the sibling repositories: `Microsoft.NET.Test.Sdk`, `MSTest.TestAdapter`,
+  `MSTest.TestFramework`, `coverlet.collector` and `GitVersion.MsBuild`. `dotnet test` runs 6 tests,
+  they need no network and no fixture outside the repository, but they do start the real
+  `jhead.exe`. Each test copies its image into its own directory below `Path.GetTempPath()` and
+  deletes it afterwards, so a test run leaves the working tree untouched. Never claim a test run
+  happened without running it.
+- Beyond the tests, a behaviour change of the UI is verified by starting the built executable and
+  letting it rotate a real image whose EXIF orientation tag is not 1.
 
 ## Code conventions
 
@@ -135,8 +163,10 @@ Do not silently "clean up" these, they are existing behaviour:
   writes `Error : Problem executing specified command` plus the shell message about the unknown
   command `jpegtran`, and leaves the file untouched.
 - **`.gitignore` excludes `*.exe` and `[Bb]in`**, yet `Setup/AutoImageTurner-Setup.exe` is tracked.
-  It was added with `git add -f` and has to be updated the same way for every release. The same
-  rule is what keeps `jhead.exe` and `jpegtran.exe` out of the repository.
+  It was added with `git add -f` and has to be updated the same way for every release. The two
+  rotation tools are tracked through negation rules instead, the installer is not, because it
+  changes with every release and a negation rule would make it show up as a modification all the
+  time.
 - **The `.csproj` lists the two language files twice** in its `None Update` item group. MSBuild
   does not care, the duplication is harmless.
 - **The `README.md` headline mentions a project `AutoImageTurnInCSharp`** that does not exist in
@@ -147,7 +177,9 @@ Do not silently "clean up" these, they are existing behaviour:
 - **`src/AutoImageTurner.sln.DotSettings`** is tracked and holds nothing but a ReSharper user
   dictionary (`autorot`, `H_00E4mmer`, `jhead`, `Kindsof`, `rotator`). Leave it alone.
 - **`.gitattributes` sets `* text=auto`** and every rule of the Visual Studio template below it is
-  commented out. Any binary file that git must not touch needs its own rule there.
+  commented out. `*.exe binary` and `*.jpg binary` were added at the end so that git never
+  normalizes line endings inside the tools, the installer or the test images. Any further binary
+  file needs its own rule.
 
 ## Releasing
 

@@ -61,3 +61,10 @@
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
+
+###############################################################################
+# Never normalize line endings of the shipped tools, the installer and the test
+# images. The rotation tools and the test images have to arrive byte for byte.
+###############################################################################
+*.exe binary
+*.jpg binary
