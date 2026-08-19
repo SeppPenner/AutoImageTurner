@@ -173,11 +173,11 @@ Do not silently "clean up" these, they are existing behaviour:
   ends with exit code 0 and the good file rotated. Selecting a non-JPEG format in a folder that
   really holds such files ends in the error dialog, that is intended, before version 1.0.10.0 the
   application silently claimed success.
-- **`.gitignore` excludes `*.exe` and `[Bb]in`**, yet `Setup/AutoImageTurner-Setup.exe` is tracked.
-  It was added with `git add -f` and has to be updated the same way for every release. The two
-  rotation tools are tracked through negation rules instead, the installer is not, because it
-  changes with every release and a negation rule would make it show up as a modification all the
-  time.
+- **`.gitignore` excludes `*.exe` and `[Bb]in`**, and `Setup/AutoImageTurner-Setup.exe` is not
+  tracked any more. Up to and including 1.0.10 it was added with `git add -f` for every release, now
+  it hangs on the GitHub release of its version tag. The two rotation tools are tracked through
+  negation rules instead, the installer never was, because it changes with every release and a
+  negation rule would make it show up as a modification all the time.
 - **The `.csproj` lists the two language files twice** in its `None Update` item group. MSBuild
   does not care, the duplication is harmless.
 - **The `README.md` headline mentions a project `AutoImageTurnInCSharp`** that does not exist in
@@ -208,10 +208,27 @@ something like `1.0.10-4+Branch.master.Sha...` in its window title instead of a 
    `src/AutoImageTurner/bin/publish`.
 6. Compile `Setup/AutoImageTurner-Setup.iss` with Inno Setup, it writes
    `Setup/AutoImageTurner-Setup.exe`.
-7. Commit that file with `git add -f`, then push the commits and the tag. This last commit sits
-   after the tag, the same way `Updated setup.` sits after tag `1.0.9`.
+7. Push the commits and the tag, then attach `Setup/AutoImageTurner-Setup.exe` to the GitHub release
+   of that tag. **Never commit the installer**, it is 37 MB per release and every committed copy
+   stays in the history for good.
 
 Never run the publish or the installer build unless explicitly asked to release.
+
+For step 7 there is no `gh` on this machine. The GitHub API does the job, with the token that
+`git push` already uses, so nothing has to be stored anywhere:
+
+```bash
+c=$(printf "protocol=https\nhost=github.com\n\n" | git credential fill)
+tok=$(printf "%s" "$c" | grep '^password=' | cut -d= -f2-)
+id=$(curl -s -X POST -H "Authorization: Bearer $tok" \
+  https://api.github.com/repos/SeppPenner/AutoImageTurner/releases \
+  -d '{"tag_name":"1.0.11","name":"1.0.11"}' | grep -m1 '"id"' | tr -dc 0-9)
+curl -s -X POST -H "Authorization: Bearer $tok" -H "Content-Type: application/octet-stream" \
+  --data-binary @Setup/AutoImageTurner-Setup.exe \
+  "https://uploads.github.com/repos/SeppPenner/AutoImageTurner/releases/$id/assets?name=AutoImageTurner-Setup.exe"
+```
+
+Never print that token, and never write it into a file.
 
 There is no CI configuration in this repository, no `.github` folder and no publish pipeline. There
 is no `Updating.md` and no `HowToUse.md` here, the `README.md` with the screenshot
